@@ -8,6 +8,7 @@ $menu = JMenu::getInstance('site');
 
 $app  = JFactory::getApplication();
 $view = $app->input->getCmd('view', '');
+$layout   = $app->input->getCmd('layout', '');
 
 $item = modArticlesSingleHelper::getItem($params);
 $moduleclass_sfx = htmlspecialchars($params->get('moduleclass_sfx'));

@@ -1,21 +1,23 @@
 <?php
 	defined('_JEXEC') or die;
+	if($layout!='edit'){
 	$canEdit = $item->params->get('access-edit');
 	JHtml::addIncludePath(JPATH_BASE.'/components/com_content/helpers');
+}
 ?>
 
 <div class="mod-article-single mod-article-single__<?php echo $moduleclass_sfx; ?>" id="module_<?php echo $module->id; ?>">
 	<div class="item__module" id="item_<?php echo $item->id; ?>">
 
 	<!-- Icons -->
+<?php if($layout!='edit') : ?>
 	<?php if ($canEdit) : ?>
 	<div class="item_icons btn-group pull-right"> <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"> <i class="fa fa-cog"></i> <span class="caret"></span> </a>
 		<ul class="dropdown-menu">
-			<?php if ($canEdit) : ?>
-				<li class="edit-icon"> <?php echo JHtml::_('icon.edit', $item, $params); ?> </li>
-			<?php endif; ?>
+			<li class="edit-icon"> <?php echo JHtml::_('icon.edit', $item, $params); ?> </li>
 		</ul>
 	</div>
+	<?php endif; ?>
 	<?php endif; ?>
 
 		<!-- Item Title -->
@@ -66,7 +68,7 @@
 				if (isset($item->link) && $params->get('readmore')) :	
 
             if($view == "form"){
-              if(isset($item->attribs['alternative_readmore'])){
+              if($item->attribs['alternative_readmore']){
                 $readMoreText = $item->attribs['alternative_readmore'];
               } else {
                 $readMoreText = JText::_('TPL_COM_CONTENT_READ_MORE');
