@@ -11,7 +11,7 @@
 	<license></license>
 	<authorEmail></authorEmail>
 	<authorUrl></authorUrl>
-	<version>1.2.0</version>
+	<version>1.2.1</version>
 	<description>MOD_ARTICLES_SINGLE_XML_DESCRIPTION</description>
 	<files>
 		<filename module="mod_articles_single">mod_articles_single.php</filename>
@@ -27,13 +27,15 @@
 	<help key="JHELP_EXTENSIONS_MODULE_MANAGER_ARTICLES_NEWSFLASH" />
 	<config>
 		<fields name="params">
-			<fieldset name="basic">
+			<fieldset name="basic"
+				addfieldpath="/administrator/components/com_content/models/fields">
 
 				<field
 					name="article_id"
-					type="text"
-					default=""
-					size="3"
+					type="modal_article"
+					required="true"
+					edit="true"
+					clear="false"
 					label="MOD_ARTICLES_SINGLE_FIELD_ART_ID"
 					description="MOD_ARTICLES_SINGLE_FIELD_ART_ID_DESC"/>
 
@@ -65,14 +67,15 @@
 					label="MOD_ARTICLES_SINGLE_FIELD_TITLE_LABEL"
 					description="MOD_ARTICLES_SINGLE_FIELD_TITLE_DESC">
 					<option
-						value="1">JYES</option>
+						value="0">JHIDE</option>
 					<option
-						value="0">JNO</option>
+						value="1">JSHOW</option>
 				</field>
 
 				<field
 					name="link_titles"
-					type="list"
+					type="radio"
+					class="btn-group"
 					label="MOD_ARTICLES_SINGLE_FIELD_LINKTITLE_LABEL"
 					description="MOD_ARTICLES_SINGLE_FIELD_LINKTITLE_DESC">
 					<option
@@ -91,9 +94,9 @@
 					label="MOD_ARTICLES_SINGLE_PUBLISHED_DATE_LABEL"
 					description="MOD_ARTICLES_SINGLE_PUBLISHED_DATE_DESC">
 					<option
-						value="1">JYES</option>
+						value="0">JHIDE</option>
 					<option
-						value="0">JNO</option>
+						value="1">JSHOW</option>
 				</field>
 
 				<field
@@ -104,9 +107,9 @@
 					label="MOD_ARTICLES_SINGLE_SHOW_INTRO_IMAGE"
 					description="MOD_ARTICLES_SINGLE_SHOW_INTRO_IMAGE_DESC">
 					<option
-						value="1">JYES</option>
+						value="0">JHIDE</option>
 					<option
-						value="0">JNO</option>
+						value="1">JSHOW</option>
 				</field>
 
 				<field
